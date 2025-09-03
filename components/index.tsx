@@ -1,3 +1,3 @@
-import CustomLoader from "./loader";
+import CustomLoader from './loader';
 
 export { CustomLoader as Loader };
