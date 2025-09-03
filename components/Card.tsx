@@ -17,7 +17,7 @@ export default function Card({
     );
 
     return {
-      opacity: withTiming(isVisible ? 0.8 : 0),
+      opacity: withTiming(isVisible ? 1 : 0),
       transform: [
         {
           scale: withTiming(isVisible ? 1 : 0.6),
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   objective: {
     fontSize: 14,
     fontFamily: 'regular',
-    color: '#555',
+    color: '#000000c4',
   },
   toolsContainer: {
     flexDirection: 'row',
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   toolbox: {
-    backgroundColor: '#999',
+    backgroundColor: '#777',
     borderRadius: 8,
     paddingHorizontal: 8,
     paddingVertical: 4,
