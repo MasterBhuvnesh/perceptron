@@ -1,21 +1,46 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, ViewToken } from 'react-native';
+import Animated, { useAnimatedStyle, withTiming } from 'react-native-reanimated';
+export default function Card({
+  item,
+  onPress,
+  viewableItems,
+}: {
+  item: any;
+  onPress: () => void;
+  viewableItems: Animated.SharedValue<ViewToken[]>;
+}) {
+  const rStyle = useAnimatedStyle(() => {
+    const isVisible = Boolean(
+      viewableItems.value
+        .filter((item) => item.isViewable)
+        .find((viewableItem) => viewableItem.item.id === item.id),
+    );
 
-export default function Card({ item, onPress }: { item: any; onPress: () => void }) {
+    return {
+      opacity: withTiming(isVisible ? 0.8 : 0),
+      transform: [
+        {
+          scale: withTiming(isVisible ? 1 : 0.6),
+        },
+      ],
+    };
+  }, []);
+
   return (
     <TouchableOpacity onPress={onPress}>
-      <View style={styles.card}>
-        <Text style={styles.title}>{item.title}</Text>
-        <Text style={styles.objective} numberOfLines={2}>
+      <Animated.View style={[styles.card, rStyle]}>
+        <Animated.Text style={styles.title}>{item.title}</Animated.Text>
+        <Animated.Text style={styles.objective} numberOfLines={2}>
           {item.objective}
-        </Text>
-        <View style={styles.toolsContainer}>
+        </Animated.Text>
+        <Animated.View style={styles.toolsContainer}>
           {item.tools.map((tool: string, index: number) => (
             <View key={index} style={styles.toolbox}>
               <Text style={styles.tool}>{tool}</Text>
             </View>
           ))}
-        </View>
-      </View>
+        </Animated.View>
+      </Animated.View>
     </TouchableOpacity>
   );
 }
