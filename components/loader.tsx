@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from "react";
-import { ActivityIndicator, Animated, StyleSheet } from "react-native";
+import React, { useEffect, useRef } from 'react';
+import { Animated, StyleSheet } from 'react-native';
 const CustomLoader = ({ visible = true }) => {
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
@@ -21,10 +21,7 @@ const CustomLoader = ({ visible = true }) => {
 
   return (
     <Animated.View style={[styles.loaderContainer, { opacity: fadeAnim }]}>
-      <ActivityIndicator
-        size="large"
-        color="#ffffff"
-      />
+      <Animated.Text style={{ color: '#000', fontFamily: 'regular' }}>Loading ..</Animated.Text>
     </Animated.View>
   );
 };
@@ -32,9 +29,9 @@ const CustomLoader = ({ visible = true }) => {
 const styles = StyleSheet.create({
   loaderContainer: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "transparent",
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'transparent',
   },
 });
 
