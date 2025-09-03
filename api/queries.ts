@@ -6,7 +6,7 @@ export function useTopics() {
   return useQuery<Topic[]>({
     queryKey: ['topics'],
     queryFn: async () => {
-      const res = await fetcher<Topic[]>('/topics');
+      const res = await fetcher<Topic[]>('/data');
       return TopicSchema.array().parse(res);
     },
   });
