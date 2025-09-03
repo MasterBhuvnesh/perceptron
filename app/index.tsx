@@ -1,15 +1,21 @@
-import { Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 export default function Index() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text style={{ fontFamily: "regular" }}>Starter Template</Text>
+    <View style={styles.container}>
+      <Text style={styles.text}>[ app/index.tsx ]</Text>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    fontFamily: "regular",
+  },
+  text: {
+    fontFamily: "regular",
+  },
+});
