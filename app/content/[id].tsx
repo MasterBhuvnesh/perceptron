@@ -25,6 +25,7 @@ export default function ContentScreen() {
   return (
     <SafeAreaView>
       <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+        {/* <Image source={require('@/assets/images/icon.png')} style={styles.icon} /> */}
         <Text style={styles.title}>{data.title}</Text>
         <View style={styles.separator} />
         <Image source={{ uri: data.image }} style={styles.image} />
@@ -66,6 +67,11 @@ const styles = StyleSheet.create({
     fontFamily: 'regular',
     marginTop: 100,
   },
+  // icon: {
+  //   width: 50,
+  //   height: 50,
+  //   alignSelf: 'center',
+  // },
   title: {
     fontSize: 24,
     fontFamily: 'bold',

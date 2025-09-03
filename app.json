@@ -37,6 +37,19 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "e862e85f-7ffd-40e2-90fc-4d4d7d2df7fb"
+      }
+    },
+    "owner": "bhuvneshverma",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/e862e85f-7ffd-40e2-90fc-4d4d7d2df7fb"
     }
   }
 }
