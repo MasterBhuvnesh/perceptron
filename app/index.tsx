@@ -1,16 +1,33 @@
 import { useTopics } from '@/api';
-import { StyleSheet, Text, View } from 'react-native';
+import Card from '@/components/Card';
+import Loader from '@/components/loader';
+import { useRouter } from 'expo-router';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
+
 export default function Index() {
-  const { data } = useTopics();
-  console.log(data);
+  const { data, isLoading, error } = useTopics();
+  const router = useRouter();
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  if (error) {
+    return <Text>Error: {error.message}</Text>;
+  }
+
   return (
     <View style={styles.container}>
-      {/* <Text style={styles.text}>[ app/index.tsx ]</Text> */}
-      {data?.map((topic) => (
-        <Text key={topic.id} style={styles.text}>
-          {topic.title}
-        </Text>
-      ))}
+      <FlatList
+        data={data}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <Card
+            item={item}
+            onPress={() => router.push({ pathname: '/content/[id]', params: { id: item.id } })}
+          />
+        )}
+      />
     </View>
   );
 }

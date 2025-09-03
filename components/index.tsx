@@ -1,3 +1,3 @@
 import CustomLoader from './loader';
-
-export { CustomLoader as Loader };
+import Notification from './Notification';
+export { CustomLoader as Loader, Notification };

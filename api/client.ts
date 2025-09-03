@@ -1,5 +1,7 @@
+const api = process.env.EXPO_PUBLIC_API_URL;
+
 export async function fetcher<T>(url: string): Promise<T> {
-  const fullUrl = `${process.env.API_URL}${url}`;
+  const fullUrl = `${api}${url}`;
 
   try {
     const res = await fetch(fullUrl);
