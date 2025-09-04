@@ -25,8 +25,10 @@ export default function ContentScreen() {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
       <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-        {/* <Image source={require('@/assets/images/icon.png')} style={styles.icon} /> */}
-        <Text style={styles.title}>{data.title}</Text>
+        <View style={styles.headerContainer}>
+          <Text style={styles.title}>{data.title}</Text>
+          <Text style={styles.date}>{data.date}</Text>
+        </View>
         <View style={styles.separator} />
         <Image source={{ uri: data.image }} style={styles.image} />
         <Text style={styles.Label}>Description:</Text>
@@ -71,16 +73,25 @@ const styles = StyleSheet.create({
     fontFamily: 'regular',
     marginTop: 100,
   },
-  // icon: {
-  //   width: 50,
-  //   height: 50,
-  //   alignSelf: 'center',
-  // },
+  headerContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 12,
+    flexWrap: 'wrap',
+  },
   title: {
     fontSize: 24,
     fontFamily: 'bold',
     textAlign: 'center',
     color: '#000',
+  },
+  date: {
+    fontSize: 14,
+    textAlign: 'center',
+    color: '#888',
+    marginTop: 4,
+    fontFamily: 'regular',
   },
   image: {
     width: '100%',

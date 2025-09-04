@@ -1,13 +1,16 @@
 import { StyleSheet, Text, TouchableOpacity, View, ViewToken } from 'react-native';
 import Animated, { useAnimatedStyle, withTiming } from 'react-native-reanimated';
+
 export default function Card({
   item,
   onPress,
   viewableItems,
+  disabled = false,
 }: {
   item: any;
   onPress: () => void;
   viewableItems: Animated.SharedValue<ViewToken[]>;
+  disabled?: boolean;
 }) {
   const rStyle = useAnimatedStyle(() => {
     const isVisible = Boolean(
@@ -27,9 +30,17 @@ export default function Card({
   }, []);
 
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity onPress={onPress} disabled={disabled}>
       <Animated.View style={[styles.card, rStyle]}>
-        <Animated.Text style={styles.title}>{item.title}</Animated.Text>
+        <View style={styles.header}>
+          <Animated.Text style={styles.title}>{item.title}</Animated.Text>
+          <View
+            style={[
+              styles.dot,
+              { backgroundColor: item.status === 'completed' ? '#4ade80' : '#fdba74' },
+            ]}
+          />
+        </View>
         <Animated.Text style={styles.objective} numberOfLines={2}>
           {item.objective}
         </Animated.Text>
@@ -54,6 +65,19 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     borderColor: '#ddd',
     borderWidth: 1,
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 8,
+    flexWrap: 'wrap',
+  },
+  dot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    marginLeft: 8,
   },
   title: {
     fontSize: 16,

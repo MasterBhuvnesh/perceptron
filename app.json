@@ -14,7 +14,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#000000"
+        "backgroundColor": "#090909"
       },
       "edgeToEdgeEnabled": true,
       "package": "com.bhuvneshverma.perceptron"

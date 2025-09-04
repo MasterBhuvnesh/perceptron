@@ -1,4 +1,4 @@
-import { Loader, Notification } from '@/components';
+import { Loader } from '@/components';
 import { useCustomFonts, useFrameworkReady } from '@/hooks';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Stack } from 'expo-router';
@@ -18,25 +18,21 @@ export default function RootLayout() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <StatusBar style="auto" />
+      <StatusBar style="auto" hideTransitionAnimation="fade" hidden />
       <Stack
         screenOptions={{
-          // headerShown: false,
+          headerShown: false,
           contentStyle: { backgroundColor: 'transparent' },
           animation: 'fade',
         }}>
         <Stack.Screen
           name="index"
-          options={{
-            title: 'Perceptron',
-            headerStyle: { backgroundColor: '#fff' },
-            headerTitleStyle: { fontFamily: 'bold' },
-            headerLargeTitleShadowVisible: false,
-            headerShadowVisible: false,
-            headerRight() {
-              return <Notification />;
-            },
-          }}
+          // options={{
+          //   title: 'Perceptron',
+          //   headerStyle: { backgroundColor: '#000' },
+          //   headerLargeTitleShadowVisible: false,
+          //   headerShadowVisible: false,
+          // }}
         />
         <Stack.Screen
           name="content/[id]"

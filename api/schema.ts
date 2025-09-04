@@ -5,6 +5,7 @@ export const TopicSchema = z.object({
   title: z.string(),
   objective: z.string(),
   tools: z.array(z.string()),
+  status: z.enum(['completed', 'inprocess']),
 });
 
 export type Topic = z.infer<typeof TopicSchema>;
