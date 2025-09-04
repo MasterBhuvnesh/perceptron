@@ -16,8 +16,8 @@ const Introduction = () => {
         </TouchableOpacity>
       </View>
       <Text style={styles.description}>
-        Discover weekly updates on machine learning topics. Stay informed and join us as we explore
-        the world of machine learning together!
+        Welcome to Perceptron! Dive into fresh, bite-sized machine learning insights every week.
+        Let’s learn, grow, and explore ML together!
       </Text>
       {/* <Text style={styles.thanx}>- Bhuvnesh Verma</Text> */}
     </View>
