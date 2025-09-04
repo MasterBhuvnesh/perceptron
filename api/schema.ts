@@ -13,9 +13,11 @@ export const ContentSchema = z.object({
   id: z.string(),
   title: z.string(),
   description: z.string(),
-  theory: z.string(),
+  theory: z.array(z.string()),
   image: z.string(),
   summary: z.string(),
+  author: z.string(),
+  date: z.string(),
 });
 
 export type Content = z.infer<typeof ContentSchema>;

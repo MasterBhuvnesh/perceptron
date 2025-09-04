@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     fontFamily: 'regular',
+    backgroundColor: '#fff',
   },
   text: {
     fontFamily: 'regular',

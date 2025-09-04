@@ -1,13 +1,9 @@
 # Perceptron
 
-A simple newletter app for ML.
+A simple newsletter app for ML.
 
-- Its in initize phase & doesn't have many features.
-
-Add on :
-
-- Header in index.tsx file its like adding a setting icon that will open bottom sheet and then in bottom sheet there will be notification open and toggle button
-- download as pdf option in content section
-- optimise content , like write the theory in points also possible in markdown and plan for code too
-- date and aurthor section
-  -share option | Download PDF
+| Phase      | Features/Tasks                                                                                                                                  |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| Initialize | - App is in initialize phase & doesn't have many features.                                                                                      |
+| Working On | - Header in `index.tsx`: Add a settings icon to open a bottom sheet with notification toggle.<br>- EAS workflow                                 |
+| Upcoming   | - Custom alert modal<br>- Markdown content rendering<br>- Notification (Phase 2)<br>- Local Storage (not sure)<br>- Share option / Download PDF |

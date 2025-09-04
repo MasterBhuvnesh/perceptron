@@ -23,7 +23,7 @@ export default function ContentScreen() {
     );
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
       <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
         {/* <Image source={require('@/assets/images/icon.png')} style={styles.icon} /> */}
         <Text style={styles.title}>{data.title}</Text>
@@ -33,7 +33,11 @@ export default function ContentScreen() {
         <Text style={styles.description}>{data.description}</Text>
         <View style={styles.separator} />
         <Text style={styles.Label}>Theory:</Text>
-        <Text style={styles.theory}>{data.theory}</Text>
+        {data.theory.map((paragraph, index) => (
+          <Text key={index} style={styles.theory}>
+            {paragraph}
+          </Text>
+        ))}
         <View style={styles.separator} />
         <View style={styles.summaryContainer}>
           <Text style={styles.Label}>Summary:</Text>
@@ -41,7 +45,7 @@ export default function ContentScreen() {
         </View>
         <View style={styles.separator} />
         <View style={styles.footer}>
-          <Text style={styles.footerText}>by @MasterBhuvnesh</Text>
+          <Text style={styles.footerText}>by {data.author}</Text>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -76,6 +80,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontFamily: 'bold',
     textAlign: 'center',
+    color: '#000',
   },
   image: {
     width: '100%',
@@ -88,27 +93,36 @@ const styles = StyleSheet.create({
     marginVertical: 8,
     fontFamily: 'regular',
     color: '#555',
+    lineHeight: 20,
   },
   Label: {
     fontFamily: 'bold',
     marginTop: 12,
+    color: '#000',
   },
   theory: {
     fontFamily: 'regular',
     marginTop: 12,
     marginBottom: 12,
+    lineHeight: 20,
+    color: '#000',
   },
   summaryContainer: {
-    // marginTop: 12,
     backgroundColor: '#f9f9f9',
     padding: 12,
     borderCurve: 'continuous',
     borderRadius: 12,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
+    shadowRadius: 4,
+    elevation: 4,
   },
   summary: {
     fontFamily: 'regular',
     marginTop: 12,
     marginBottom: 12,
+    lineHeight: 20,
   },
   footer: {
     height: 200,
@@ -118,6 +132,7 @@ const styles = StyleSheet.create({
   footerText: {
     fontFamily: 'regular',
     textAlign: 'center',
+    color: '#000',
   },
   separator: {
     height: 1,
